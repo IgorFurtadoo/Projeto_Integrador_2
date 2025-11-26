@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retirada de Livros</title>
+    <link rel="stylesheet" href="../static/retirada-livros.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <main class="main-content">
+            <section class="section">
+                <h2 class="section-title">Retirada de Livros</h2>
+                <form id="formRetiradaLivros" class="form-container">
+                    <input type="text" class="input-usuario" id="ra" name="ra" placeholder="RA do aluno" required>
+                    <input type="text" class="input-usuario" id="titulo-livro" name="titulo-livro"
+                        placeholder="Titulo do livro" required>
+                    <button type="submit">Retirar</button>
+                    <div class="mensagem" id="container-mensagem">
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <script src="../script/retirada-livros.js"></script>
+    <script src="../script/helpers.js"></script>
+</body>
+
+</html>

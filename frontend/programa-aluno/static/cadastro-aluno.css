@@ -1,0 +1,152 @@
+:root {
+    --bg-color: #f0f2f5;
+    --card-bg: #ffffff;
+    --border-color: #e0e0e0;
+    --text-color: #333;
+    --placeholder-color: #999;
+    --btn-primary-bg: #555;
+    --btn-primary-hover: #444;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    overflow: hidden;
+    color: var(--text-color);
+    padding: 20px;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.nav-tabs .tab {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 5px 10px;
+}
+
+/* Conteúdo principal e seções */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.section {
+    padding: 20px 0;
+}
+
+.section + .section {
+    border-top: 1px solid var(--border-color);
+}
+
+.section-title {
+    font-size: 1.7rem;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.section-subtitle {
+    font-size: 0.7rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Formulário de entrada */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.input-usuario {
+    width: 100%;
+    max-width: 300px;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.input-usuario::placeholder {
+    color: var(--placeholder-color);
+}
+
+/* Botão */
+#formCadastroAluno button {
+    width: 100%;
+    max-width: 300px;
+    padding: 12px 15px;
+    background-color: var(--btn-primary-bg);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+#formCadastroAluno button:hover {
+    background-color: var(--btn-primary-hover);
+}
+
+/* Container mensagem */
+.mensagem {
+    margin-top: 1rem;
+}
+
+/* Estilos para mensagens */
+.mensagem-sucesso {
+    color: green;
+    font-weight: bold;
+    padding: 10px;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+}
+
+.mensagem-erro {
+    color: red;
+    font-weight: bold;
+    padding: 10px;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+}

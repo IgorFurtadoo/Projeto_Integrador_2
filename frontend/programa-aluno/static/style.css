@@ -1,0 +1,74 @@
+:root {
+    --bg-color: #f0f2f5;
+    --card-bg: #ffffff;
+    --border-color: #e0e0e0;
+    --text-color: #333;
+    --btn-bg: #555;
+    --btn-hover: #444;
+}
+
+/* Estilos básicos e centralização */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Contêiner principal */
+.container {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 80px;
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
+}
+
+h1 {
+    font-size: 2 rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin: 0 0 10px;
+}
+
+p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Contêiner para os botões */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Estilo dos botões */
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 260px;
+    padding: 25px;
+    background-color: var(--btn-bg);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.3 rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+    background-color: var(--btn-hover);
+}

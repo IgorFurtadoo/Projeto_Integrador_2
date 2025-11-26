@@ -1,0 +1,138 @@
+:root {
+  --bg-color: #f0f2f5;
+  --card-bg: #ffffff;
+  --border-color: #e0e0e0;
+  --text-color: #333;
+  --placeholder-color: #999;
+  --btn-primary-bg: #555;
+  --btn-primary-hover: #444;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--bg-color);
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.container {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  overflow: hidden;
+  color: var(--text-color);
+  padding: 20px;
+}
+
+/* Conteúdo principal e seções */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.section {
+  padding: 20px 0;
+}
+
+.section + .section {
+  border-top: 1px solid var(--border-color);
+}
+
+.section-title {
+  font-size: 1.7rem;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.section-subtitle {
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Section livros */
+.section-subtitle.destaque {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #222;
+  text-align: center;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--btn-primary-bg);
+  padding-bottom: 8px;
+  max-width: 280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Lista de livros com visual mais delicado */
+.lista-livros {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 550px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.livro-item {
+  background-color: var(--card-bg);
+  padding: 20px 25px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+.livro-item:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.livro-titulo {
+  margin: 0 0 8px 0;
+  font-weight: 700;
+  color: var(--btn-primary-bg);
+  font-size: 1.3rem;
+}
+
+.livro-autor,
+.livro-editora {
+  margin: 0;
+  font-size: 1rem;
+  color: #444;
+  font-weight: 500;
+}
+
+/* Estilos para mensagens */
+.mensagem-sucesso {
+  color: green;
+  font-weight: bold;
+  padding: 10px;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  border-radius: 5px;
+}
+
+.mensagem-erro {
+  color: red;
+  font-weight: bold;
+  padding: 10px;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 5px;
+}
