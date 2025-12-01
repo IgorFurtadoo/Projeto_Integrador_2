@@ -1,0 +1,56 @@
+.section-title {
+  text-align: center;
+  margin-bottom: 14px;
+  width: 100%;
+}
+
+.leitores-ranking .section-title + .tabela-leitores,
+.section-title + .tabela-leitores {
+  margin-top: 8px;
+  border-top: 2px solid var(--border-color);
+  padding-top: 18px;
+}
+
+table.tabela-leitores {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+
+  background: #fff;
+  border: 1px solid var(--border-color);
+  padding: 6px; 
+}
+
+.tabela-leitores th {
+  background: #4a4a4a;
+  color: #ffffff;
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.tabela-leitores td {
+  padding: 12px;
+  border-bottom: 1px solid var(--border-color);
+  color: #444;
+}
+
+.tabela-leitores tbody tr:hover {
+  background: #f8f8f8;
+  transition: 0.2s;
+}
+
+tr.iniciante { background: #d8e7ff; }
+tr.regular   { background: #d3f5e1; }
+tr.ativo     { background: #fff3c9; }
+tr.extremo   { background: #ffdcdc; }
+
+.iniciante td:last-child,
+.regular   td:last-child,
+.ativo     td:last-child,
+.extremo   td:last-child {
+  font-weight: 700;
+}

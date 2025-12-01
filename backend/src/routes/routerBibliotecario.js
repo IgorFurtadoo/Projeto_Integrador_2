@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const { adicionarLivro, listarTodosLivros, listarLivrosIndisponiveis, listarRegistroEmprestimos } = require('../models/modelBibliotecario')
+const { adicionarLivro, listarTodosLivros, listarLivrosIndisponiveis, listarRegistroEmprestimos, listarInfosAlunos } = require('../models/modelBibliotecario')
 
 router.post('/cadastro', async (req, res) => {
     const data = req.body
@@ -24,6 +24,12 @@ router.get('/listarLivrosIndisponiveis', async (req, res) => {
 
 router.get('/listarRegistroEmprestimos', async (req, res) => {
     const response = await listarRegistroEmprestimos()
+
+    return res.json(response)
+})
+
+router.get('/listarAlunos', async (req, res) => {
+    const response = await listarInfosAlunos()
 
     return res.json(response)
 })

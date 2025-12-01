@@ -1,32 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Informações do Aluno</title>
-    <link rel="stylesheet" href="../static/login-aluno.css">
-</head>
-
-<body>
-
+    <link rel="stylesheet" href="../static/login-aluno.css" />
+  </head>
+  <body>
     <div class="container">
-        <main class="main-content">
-            <section class="section">
-                <h2 class="section-title">Informações do Aluno</h2>
-            </section>
-            <section class="section livros-lista">
-                <h3 class="section-subtitle destaque">Livros disponíveis</h3>
-                <div class="mensagem" id="container-mensagem"></div>
-                <ul id="container-livros" class="lista-livros">
+      <main class="main-content">
+        <section class="section">
+          <h2 class="section-title">Informações do Aluno</h2>
+        </section>
 
-                </ul>
-            </section>
-        </main>
+        <section class="section busca-aluno">
+          <h3 class="section-subtitle">Buscar Aluno</h3>
+          <form id="formLogin" class="form-busca">
+            <input
+              type="text"
+              placeholder="Digite o RA do aluno"
+              class="input-busca"
+              name="ra"
+              id="ra"
+            />
+            <button type="submit" class="btn-busca">Pesquisar</button>
+          </form>
+          <div class="mensagem" id="container-mensagem"></div>
+        </section>
+
+        <div id="container-aluno" class="ocultar-elemento"></div>
+
+        <section id="livros-lista-main" class="ocultar-elemento">
+          <h3 class="section-subtitle destaque">Livros disponíveis</h3>
+          <ul id="container-livros" class="lista-livros"></ul>
+          <div id="container-mensagem-livro"></div>
+        </section>
+      </main>
     </div>
 
     <script src="../script/login-aluno.js"></script>
     <script src="../script/helpers.js"></script>
-</body>
-
+  </body>
 </html>
