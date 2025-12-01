@@ -1,11 +1,19 @@
 const express = require('express')
 const router = express.Router()
-const { adicionarAluno, listarLivrosDisponiveis } = require('../models/modelAluno')
+const { adicionarAluno, listarAluno, listarLivrosDisponiveis } = require('../models/modelAluno')
 
 router.post('/cadastro', async (req, res) => {
     const data = req.body
 
     const response = await adicionarAluno(data.ra, data.nomeCompleto, data.email)
+
+    return res.json(response)
+})
+
+router.post('/listarAluno', async (req, res) => {
+    const data = req.body
+
+    const response = await listarAluno(data.ra)
 
     return res.json(response)
 })

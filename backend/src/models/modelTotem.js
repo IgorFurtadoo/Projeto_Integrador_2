@@ -148,6 +148,10 @@ async function devolverLivro(ra, tituloLivro) {
             UPDATE tabela_emprestimos SET data_devolucao = NOW() WHERE aluno_id = ? AND livro_titulo = ?;
         `, [ra, tituloLivro])
 
+        await db.execute(`
+            UPDATE tabela_alunos SET livrosLidos = livrosLidos + 1 WHERE ra = ?
+        `, [ra])
+
         return {
             "detail": "ok",
             "message": "Livro devolvido com sucesso"

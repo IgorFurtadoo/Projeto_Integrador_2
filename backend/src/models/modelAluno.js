@@ -1,13 +1,13 @@
 const db = require('../database')
 
-function criarTabelaAlunos() {
+async function criarTabelaAlunos() {
     try {
         const query = `
             CREATE TABLE IF NOT EXISTS tabela_alunos (
                 ra VARCHAR(8) PRIMARY KEY NOT NULL,
                 nomeCompleto VARCHAR(50) NOT NULL,
                 email VARCHAR(75) NOT NULL,
-                classificacao INT DEFAULT 0
+                livrosLidos INT DEFAULT 0
             );
         `
 
@@ -105,6 +105,37 @@ async function adicionarAluno(ra, nomeCompleto, email) {
     }
 }
 
+async function listarAluno(ra) {
+    const responseVerificarAluno = await verificarAlunoExiste(ra)
+
+    if (responseVerificarAluno.detail === "not exist") {
+        return {
+            "detail": "error",
+            "message": "Esse RA não está cadastrado"
+        }
+
+    } else if (responseVerificarAluno.detail === "error") {
+        return {
+            "detail": "error",
+            "message": "Erro ao realizar ao procurar aluno"
+        }
+    }
+
+    try {
+        const [result] = await db.execute(`SELECT * FROM tabela_alunos WHERE ra = ?`, [ra])
+
+        return {
+            "detail": "ok",
+            "message": result
+        }
+    } catch (error) {
+        return {
+            "detail": "error",
+            "message": "Erro ao realizar ao procurar aluno"
+        }
+    }
+}
+
 async function listarLivrosDisponiveis() {
     try {
         const [result] = await db.execute(`
@@ -133,5 +164,6 @@ module.exports = {
     criarTabelaAlunos,
     adicionarAluno,
     verificarAlunoExiste,
+    listarAluno,
     listarLivrosDisponiveis
 }

@@ -1,6 +1,6 @@
 const db = require('../database')
 
-function criarTabelaLivros() {
+async function criarTabelaLivros() {
     try {
         const query = `
             CREATE TABLE IF NOT EXISTS tabela_livros (
@@ -18,7 +18,7 @@ function criarTabelaLivros() {
     }
 }
 
-function criarTabelaEmprestimos() {
+async function criarTabelaEmprestimos() {
     try {
         const query = `
             CREATE TABLE IF NOT EXISTS tabela_emprestimos (
@@ -154,11 +154,29 @@ async function listarRegistroEmprestimos() {
     }
 }
 
+async function listarInfosAlunos() {
+    try {
+        const [result] = await db.execute(`SELECT * FROM tabela_alunos ORDER BY livrosLidos DESC;`)
+
+        return {
+            "detail": "ok",
+            "message": result
+        }
+    } catch (error) {
+        return {
+            "detail": "error",
+            "message": "Não foi possível listar os alunos"
+        }
+    }
+    
+}
+
 module.exports = {
     criarTabelaLivros,
     criarTabelaEmprestimos,
     adicionarLivro,
     listarTodosLivros,
     listarLivrosIndisponiveis,
-    listarRegistroEmprestimos
+    listarRegistroEmprestimos,
+    listarInfosAlunos
 }

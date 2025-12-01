@@ -206,3 +206,44 @@ body {
     padding: 16px;
   }
 }
+
+.erro-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 10px auto 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.erro-container i {
+  background: #ffeded;
+  border-left: 4px solid #ff6b6b;
+  padding: 14px 18px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #c33;
+  border-radius: 6px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-style: normal;
+  animation: entrarErro 0.25s ease;
+}
+.erro-container i:hover {
+  filter: brightness(0.97);
+  transform: scale(1.002);
+  transition: 0.2s ease;
+}
+
+@keyframes entrarErro {
+  from {
+    opacity: 0;
+    transform: translateY(-3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -3,7 +3,6 @@
   --card-bg: #ffffff;
   --border-color: #e0e0e0;
   --text-color: #333;
-  --placeholder-color: #999;
   --btn-primary-bg: #555;
   --btn-primary-hover: #444;
 }
@@ -15,124 +14,263 @@ body {
   padding: 20px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   min-height: 100vh;
   box-sizing: border-box;
 }
 
+/* ==== CONTAINER PRINCIPAL ==== */
 .container {
+  width: 96%;
+  max-width: 1100px;
   background-color: var(--card-bg);
   border: 1px solid var(--border-color);
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 600px;
+  border-radius: 16px;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.09);
+  padding: 32px;
   overflow: hidden;
   color: var(--text-color);
-  padding: 20px;
-}
-
-/* Conteúdo principal e seções */
-.main-content {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  align-items: center;
 }
 
-.section {
-  padding: 20px 0;
+/* ==== MAIN CONTENT ==== */
+.main-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
-.section + .section {
-  border-top: 1px solid var(--border-color);
-}
-
+/* ==== TÍTULOS ==== */
 .section-title {
-  font-size: 1.7rem;
-  font-weight: 500;
-  margin-top: 0;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.section-subtitle {
-  font-size: 0.7rem;
+  font-size: 1.6rem;
   font-weight: 600;
-  margin-top: 0;
-  margin-bottom: 20px;
   text-align: center;
+  margin: 0;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--border-color);
+  width: 100%;
 }
 
-/* Section livros */
 .section-subtitle.destaque {
+  width: 100%;
   font-size: 1.3rem;
   font-weight: 700;
-  color: #222;
   text-align: center;
-  margin-bottom: 25px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  border-bottom: 2px solid var(--btn-primary-bg);
-  padding-bottom: 8px;
-  max-width: 280px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--border-color);
 }
 
-/* Lista de livros com visual mais delicado */
+/* ==== CARD DO ALUNO ==== */
+.aluno-card {
+  width: 100%;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 24px 32px;
+  box-shadow: 0 6px 22px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: fadeAluno 0.3s ease;
+}
+
+@keyframes fadeAluno {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.aluno-dados {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.aluno-linha {
+  width: 100%;
+  font-size: 1rem;
+  background: #fafafa;
+  padding: 14px 18px;
+  border-radius: 8px;
+  border-left: 4px solid #3977ff;
+  color: #333;
+}
+
+/* ==== LINHA DESTAQUE DO LEITOR ==== */
+.destaque-leitor {
+  background: #fffae0;
+  border-left-color: #f4b400;
+  font-weight: 800;
+  text-align: center;
+  color: #222;
+}
+
+/* ==== LISTA DE LIVROS (precisa casar com .lista-livros do seu HTML e querySelector no JS) ==== */
 .lista-livros {
+  width: 100%;
   list-style: none;
   padding: 0;
-  margin: 0 auto;
-  max-width: 550px;
+  margin: 0;
   display: flex;
   flex-direction: column;
   gap: 18px;
 }
 
 .livro-item {
-  background-color: var(--card-bg);
-  padding: 20px 25px;
+  width: 100%;
+  background: var(--card-bg);
+  padding: 18px 24px;
   border: 1px solid var(--border-color);
-  border-radius: 8px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-  transition: box-shadow 0.3s ease;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.04);
+  transition: 0.2s ease;
 }
 
 .livro-item:hover {
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
 
 .livro-titulo {
-  margin: 0 0 8px 0;
+  margin: 0 0 6px 0;
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--btn-primary-bg);
-  font-size: 1.3rem;
 }
 
 .livro-autor,
 .livro-editora {
   margin: 0;
-  font-size: 1rem;
-  color: #444;
+  font-size: 0.92rem;
   font-weight: 500;
+  color: #555;
 }
 
-/* Estilos para mensagens */
-.mensagem-sucesso {
-  color: green;
-  font-weight: bold;
-  padding: 10px;
-  background-color: #d4edda;
-  border: 1px solid #c3e6cb;
-  border-radius: 5px;
+/* ==== CAIXA GLOBAL DE ERROS (fora do card/container principal) ==== */
+.erro-container {
+  width: 96%;
+  max-width: 1100px;
+  margin-bottom: 16px;
+  margin-top: 4px;
+}
+
+.erro-container i {
+  display: block;
+  background: #ffeded;
+  border-left: 4px solid #ff4d4d;
+  padding: 14px 18px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #b00;
+  border-radius: 10px;
+  font-style: normal;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+  animation: entrarErro 0.25s ease;
+}
+
+@keyframes entrarErro {
+  from { opacity: 0; transform: translateX(-4px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ==== CAIXA DE ERROS DO ALUNO (onde seu JS injeta <i>) ==== */
+#aluno-erros {
+  width: 100%;
+  margin-top: 6px;
+}
+
+#aluno-erros i {
+  display: block;
+  background: #ffeded;
+  border-left: 4px solid #ff6b6b;
+  padding: 12px 16px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #c00;
+  border-radius: 8px;
+  font-style: normal;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  margin-bottom: 10px;
+  animation: entrarErro 0.25s ease;
+}
+
+/* ==== FORM BUSCAR ALUNO ==== */
+.busca-aluno {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.form-busca {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  gap: 10px;
+}
+
+.input-busca {
+  flex: 1;
+  padding: 14px 18px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  outline: none;
+  transition: 0.2s;
+}
+
+.input-busca:focus {
+  border-color: #3977ff;
+  box-shadow: 0 0 0 3px rgba(57,119,255,0.15);
+}
+
+.btn-busca {
+  padding: 14px 22px;
+  background: var(--btn-primary-bg);
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.btn-busca:hover {
+  background: var(--btn-primary-hover);
+  transform: translateY(-1px);
+}
+
+.ocultar-elemento {
+  display: none;
 }
 
 .mensagem-erro {
-  color: red;
-  font-weight: bold;
-  padding: 10px;
-  background-color: #f8d7da;
-  border: 1px solid #f5c6cb;
-  border-radius: 5px;
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-top: 10px;
+    animation: entrarErro 0.3s ease;
+}
+
+/* Mensagem de sucesso (opcional, caso queira usar no futuro) */
+.mensagem-sucesso {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-top: 10px;
 }
