@@ -62,10 +62,6 @@ body {
     gap: 20px;
 }
 
-.section {
-    padding: 20px 0;
-}
-
 .section + .section {
     border-top: 1px solid var(--border-color);
 }
@@ -149,4 +145,31 @@ body {
     background-color: #f8d7da;
     border: 1px solid #f5c6cb;
     border-radius: 5px;
+}
+
+.button-container {
+  cursor: pointer;
+}
+
+.button-container a {
+  display: inline-flex;
+  align-items: center;
+  color: #444;
+  text-decoration: none;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s;
+}
+
+.button-container a:hover {
+  background-color: rgb(211, 211, 211);
+}
+
+.voltar-btn svg {
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.back {
+  rotate: 90deg;
 }
